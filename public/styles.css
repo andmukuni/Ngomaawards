@@ -1,0 +1,191 @@
+  :root{
+    --brand:#f77b0f;            /* primary neon/green CTA */
+    --brand-600:#ec9200;
+    --ink:#0b0f12;              /* near-black */
+    --muted:#6c7680;
+  }
+  *{box-sizing:border-box}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#101214;background:#0d0f10}
+  a{text-decoration:none}
+
+  /* Top utility bar */
+  .topbar{
+    background:#0d0f10; color:#c9d1d9; font-size:.9rem;
+    border-bottom:1px solid rgba(255,255,255,.06)
+  }
+  .topbar a{color:#c9d1d9}
+  .topbar .sep{opacity:.25; margin:0 .6rem}
+
+  /* Navbar */
+  .navbar{background:#0b0f12}
+  .navbar .nav-link{color:#dbe1e8; font-weight:600}
+  .navbar .nav-link.active,
+  .navbar .nav-link:hover{color:#fff}
+  .btn-cta{
+    background:var(--brand); border:none; color:#00130a; font-weight:800;
+    box-shadow:0 8px 24px rgba(0,208,132,.25)
+  }
+  .btn-cta:hover{background:var(--brand-600); color:#00130a}
+
+  /* Logo block */
+  .brand-logo{display:flex; align-items:center; gap:.75rem}
+  .brand-mark{
+    width:56px; height:56px; border-radius:.5rem;
+    display:grid; place-items:center;
+    background:linear-gradient(135deg,#0f1519,#1a2229);
+    border:1px solid rgba(255,255,255,.08)
+  }
+  .brand-text{color:#fff; font-weight:800; letter-spacing:.3px}
+  .brand-sub{font-weight:900}
+
+  /* Hero */
+  .hero{
+    position:relative; min-height:86vh; overflow:hidden;
+    background:radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,.06), transparent 60%),
+               radial-gradient(1200px 600px at 90% 90%, rgba(0,208,132,.08), transparent 60%),
+               #0d0f10;
+  }
+
+  /* LEFT IMAGE SLICE + KEN BURNS */
+  .hero .left-img{
+    position:absolute; inset:0 45% 0 0;      /* left ~55% image area */
+    overflow:hidden;                          /* hide zoom edges */
+  }
+  .hero .left-img::before{
+    content:"";
+    position:absolute; inset:0;
+    background: url('image/hero1.jpg') center right / cover no-repeat;
+    filter: saturate(1.05) contrast(1.02);
+    transform-origin: center right;
+    animation: heroKenBurns 28s ease-in-out infinite alternate; /* slow loop */
+    will-change: transform;
+  }
+  @keyframes heroKenBurns{
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.06); }  /* gentle zoom in */
+    100% { transform: scale(1); }     /* zoom out */
+  }
+
+  .hero .left-overlay{
+    position:absolute; inset:0 45% 0 0;
+    background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.35));
+  }
+  .hero .content-wrap{ position:relative; z-index:3; }
+  .hero-card{
+    background:#0f1418; color:#e8eef5;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:1rem; padding:2.25rem;
+    box-shadow:0 24px 60px rgba(0,0,0,.45)
+  }
+  .eyebrow{letter-spacing:.12em; text-transform:uppercase; color:#9fb0bf; font-weight:700}
+  .hero h1{
+    font-weight:900; line-height:1.05; margin:.4rem 0 1rem;
+    color:#fff; font-size:clamp(2rem,4vw,3.25rem);
+  }
+  .hero h1 .outline{
+    color:transparent; -webkit-text-stroke:1px #cfd8e3; text-stroke:1px #cfd8e3;
+    font-weight:900
+  }
+  .hero p{color:#c6d1db}
+  .btn-arrow{ display:inline-flex; align-items:center; gap:.75rem; font-weight:800 }
+  .btn-arrow .bi{ transform:translateX(0); transition:transform .2s ease }
+  .btn-arrow:hover .bi{ transform:translateX(4px) }
+
+  /* Floating rail (right side icons) */
+  .action-rail{
+    position:fixed; right:1rem; top:50%; transform:translateY(-50%);
+    display:flex; flex-direction:column; gap:.6rem; z-index:5
+  }
+  .action-rail a{
+    width:40px; height:40px; display:grid; place-items:center;
+    color:#c8d1da; background:#12181d; border:1px solid rgba(255,255,255,.08);
+    border-radius:.6rem; transition:.15s;
+  }
+  .action-rail a:hover{color:#fff; background:#151d23}
+
+  /* Chat bubble */
+  .chat-bubble{
+    position:fixed; left:1rem; bottom:1.2rem; z-index:5;
+    width:54px; height:54px; border-radius:50%;
+    display:grid; place-items:center; background:var(--brand); color:#00130a;
+    box-shadow:0 12px 36px rgba(0,208,132,.35); font-size:1.35rem;
+  }
+
+  /* Category card hover */
+  .category-card{ transition: transform .25s ease, box-shadow .25s ease; will-change: transform; }
+  .category-card .card-img{ transition: transform .35s ease; }
+  .category-card:hover .card-img{ transform: scale(1.06); }
+
+  /* Partner logo tiles (single definition) */
+  .logo-box{
+    width:170px; 
+    height:140px;
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(0,0,0,.75);
+    padding:12px; border-radius:.8rem;
+    transition: transform .25s ease, box-shadow .25s ease;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .logo-box img{ max-height:90px; object-fit:contain; }
+  .logo-box:hover{ transform:translateY(-4px); box-shadow:0 6px 16px rgba(0,0,0,.4); }
+
+  /* Left CTA stack over the hero image */
+  .left-cta-stack{
+    position:absolute;
+    left:clamp(16px, 4vw, 56px);
+    top:50%;
+    transform:translateY(-50%);
+    z-index:5;
+    display:flex; flex-direction:column; gap:12px;
+  }
+  .left-cta-stack .btn{
+    border-radius:14px; padding:.9rem 1.25rem; font-weight:700;
+    box-shadow:0 8px 24px rgba(0,0,0,.35);
+    backdrop-filter:saturate(140%) blur(2px);
+  }
+  .btn-cta-soft{
+    background:linear-gradient(180deg, rgba(16,185,129,.2), rgba(16,185,129,.05));
+    border:1px solid rgba(16,185,129,.35);
+    color:#d1fae5;
+  }
+  .btn-cta-soft:hover{ background:rgba(16,185,129,.3); color:#ecfdf5; }
+
+  /* Responsive tweaks */
+  @media (max-width: 991.98px){
+    .hero .left-img, .hero .left-overlay{ inset:0; right:0; opacity:.35 }
+    .hero{ min-height:auto; padding-top:32px }
+    .action-rail{ display:none }
+    .left-cta-stack{
+      position:static; transform:none; margin-bottom:1rem;
+      flex-direction:row; gap:.75rem; justify-content:flex-start;
+    }
+    .left-cta-stack .btn{ padding:.7rem 1rem; border-radius:12px; }
+  }
+
+  /* Prefer-reduced-motion accessibility */
+  @media (prefers-reduced-motion: reduce){
+    .category-card, .category-card .card-img{ transition:none; }
+    .hero .left-img::before{ animation:none; }
+  }
+  .overlay-dark {
+  background: linear-gradient(to top, rgba(0,0,0,.7), transparent);
+}
+
+    body {
+      background-color: #111; /* dark background */
+      color: #fff;
+    }
+    .page-wrapper {
+      max-width: 900px;   /* limit width */
+      margin: 0 auto;     /* center horizontally */
+      padding: 2rem 1rem; /* spacing */
+    }
+    .card {
+      background: #fff;
+      color: #000;
+    }
+
+    .navbar {
+  padding-top: 0.90rem;
+  padding-bottom: 0.90rem;
+}
