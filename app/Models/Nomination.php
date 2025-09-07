@@ -50,4 +50,6 @@ class Nomination extends Model
         return datatables($query);
     }
 
+    
+
 }

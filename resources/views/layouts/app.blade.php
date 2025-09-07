@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>@yield('title', 'XTRA Gym — Results Driven Fitness Trainings')</title>
+  <title>@yield('title', 'Ngoma Awards')</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   {{-- Fonts --}}
@@ -15,6 +15,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.datatables.net/2.3.3/css/dataTables.dataTables.min.css">
+    {{-- Hover effects --}}
+  <link href="https://unpkg.com/hover.css@2.3.2/css/hover-min.css" rel="stylesheet">
+  {{-- Bootstrap Icons --}}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
 
   {{-- App styles --}}
@@ -38,9 +42,20 @@
   </div>
 
   {{-- Optional chat bubble --}}
-  <a href="#" class="chat-bubble" title="Chat with us">
-    <i class="bi bi-chat-left-text"></i>
-  </a>
+@php
+  // ZM WhatsApp number in international format (no +, no spaces)
+  $waPhone = '260973790404';
+  // Prefill the chat message (optional)
+  $waText  = rawurlencode("Hi Ngoma Awards team 👋 I’d like to ask about nominations.");
+@endphp
+
+<a href="https://wa.me/{{ $waPhone }}?text={{ $waText }}"
+   class="chat-bubble"
+   title="Chat with us on WhatsApp"
+   target="_blank" rel="noopener">
+  <i class="bi bi-chat-left-text"></i>
+</a>
+
 
   {{-- Page-level hero slot (so your home can inject the big hero) --}}
   @yield('hero')

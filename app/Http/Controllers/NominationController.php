@@ -19,9 +19,9 @@ class NominationController extends Controller
  */
 public function index(Request $request)
 {
-    if ($request->ajax()) {
-        return $this->getNominationsData($request);
-    }
+    // if ($request->ajax()) {
+    //     return $this->getNominationsData($request);
+    // }
 
     $categories = [
         'Best TV Series of the Year',
@@ -500,5 +500,43 @@ public function index(Request $request)
             ->make(true);
     }
 
+public function dataPage(Request $request)
+{
+    $perPage  = (int) $request->input('per_page', 10);
+    $q        = trim((string) $request->input('q', ''));
+    $category = $request->input('category');
+    $year     = $request->input('year');
+    $status   = $request->input('status');
+    $domain   = $request->input('domain');
+
+    $searchable = [
+      'category','series_name','network','year','actress_name','actor_name','movie','role',
+      'song_title','artist','release_year','main_artist','featured_artists','stage_name',
+      'platform','profile_url','model_name','agency','portfolio_url','region','popular_song',
+      'domain','signature_work','status'
+    ];
+
+    $query = Nomination::query()
+      ->when($q !== '', function($qbuilder) use($q, $searchable){
+        $like = "%{$q}%";
+        $qbuilder->where(function($sub) use ($like,$searchable){
+          foreach ($searchable as $col) $sub->orWhere($col,'like',$like);
+        });
+      })
+      ->when($category, fn($qb)=>$qb->where('category',$category))
+      ->when($year,     fn($qb)=>$qb->where('year',$year))
+      ->when($status,   fn($qb)=>$qb->where('status',$status))
+      ->when($domain,   fn($qb)=>$qb->where('domain',$domain))
+      ->orderByDesc('id');
+
+    $nominations = $query->paginate($perPage)->withQueryString();
+
+    // Distincts for filter selects
+    $categories = Nomination::whereNotNull('category')->distinct()->orderBy('category')->pluck('category');
+    $years      = Nomination::whereNotNull('year')->distinct()->orderByDesc('year')->pluck('year');
+    $domains    = Nomination::whereNotNull('domain')->distinct()->orderBy('domain')->pluck('domain');
+
+    return view('nominations.nominationdata', compact('nominations','categories','years','domains'));
+}
 
 }

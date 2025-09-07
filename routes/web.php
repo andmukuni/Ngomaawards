@@ -3,18 +3,24 @@
 use App\Http\Controllers\NominationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ContactController;
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/events', function () {
+Route::get('/event', function () {
     return view('eventdetail');
 });
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+// routes/web.php
+Route::view('/about', 'about')->name('about');
+
+
+Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
 
 // Categories page route
 Route::get('/categories', function () {
@@ -56,5 +62,8 @@ Route::middleware('auth')->group(function () {
         ->except(['store', 'index']) // exclude both store and index since we have custom ones
         ->where(['nomination' => '[0-9]+']);
 });
+
+Route::get('nominationdata', [NominationController::class, 'dataPage'])
+    ->name('nominationdata.index');
 
 require __DIR__.'/auth.php';

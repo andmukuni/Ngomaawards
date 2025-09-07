@@ -189,3 +189,70 @@
   padding-top: 0.90rem;
   padding-bottom: 0.90rem;
 }
+
+ .chat-bubble{
+    position: fixed; right: 18px; bottom: 18px;
+    width: 56px; height: 56px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: #25D366; color: #fff; font-size: 1.4rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,.25);
+    z-index: 1050; text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .chat-bubble:hover{ transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,.28); }
+
+      .overlay-dark {
+      background: linear-gradient(to top, rgba(0,0,0,.7), transparent);
+    }
+    .category-card {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .category-card:hover { transform: translateY(-5px); }
+
+    /* Force labels to show in the modal even if the theme hides them */
+    #nominationModal .form-label{
+      display:block !important;
+      position:static !important;
+      height:auto !important;
+      width:auto !important;
+      clip:auto !important;
+      clip-path:none !important;
+      overflow:visible !important;
+      margin-bottom:.4rem;
+      color:#111 !important;   /* dark on white modal */
+      font-weight:600;
+    }
+
+    #nominationModal .form-control::placeholder { color:#9aa0a6; }
+    #nominationModal .form-select { color:#111; }
+
+  .nav-glass {
+    position: sticky; top: 0; z-index: 1030; /* above content */
+    position: -webkit-sticky; /* iOS */
+    border-bottom: 1px solid rgba(255,255,255,.15);
+  }
+  .nav-glass::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.45); /* base tint */
+    backdrop-filter: blur(10px) saturate(140%) contrast(105%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%) contrast(105%);
+    pointer-events: none; /* let clicks pass through */
+  }
+  .nav-glass .container,
+  .nav-glass .navbar-brand,
+  .nav-glass .navbar-collapse { position: relative; z-index: 1; }
+
+  /* Slightly stronger tint when scrolled */
+  .nav-glass.scrolled::before { background: rgba(0,0,0,.60); }
+
+  /* Link colors (keeps your inline active styles if you prefer) */
+  .nav-glass .nav-link { color: #fff; }
+  .nav-glass .nav-link:hover { color: #ffd700; }
+
+  /* Fallback when backdrop-filter unsupported */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .nav-glass::before { background: rgba(0,0,0,.80); }
+  }

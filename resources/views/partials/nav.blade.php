@@ -8,8 +8,8 @@
   }
 @endphp
 
-<nav class="navbar navbar-expand-lg sticky-top border-bottom border-dark"
-     style="background:url('{{ asset('image/nav-bg.png') }}') center/cover no-repeat; min-height:120px;">
+<nav class="navbar navbar-expand-lg sticky-top border-bottom border-dark nav-glass"
+     style="position:sticky; top:0; background:url('{{ asset('image/nav-bg.png') }}') center/cover no-repeat; min-height:120px;">
   <div class="container d-flex align-items-center justify-content-between" style="gap:20px;">
 
     <!-- Logo (left) -->
@@ -66,12 +66,17 @@
       </ul>
     </div>
 
-    <!-- CTA Button (right) -->
-    <div class="d-none d-lg-block">
+    <!-- CTAs (right) -->
+    <div class="d-none d-lg-flex" style="gap:10px;">
       <a href="{{ route('categories.index') }}"
          class="fw-semibold px-4 py-2 rounded-3"
          style="font-size:15px; background:linear-gradient(90deg,#b8860b,#ffd700,#daa520); color:#000; border:none;">
-        Nominate Now <i class="bi bi-arrow-right-short ms-1"></i>
+        Explore Categories <i class="bi bi-arrow-right-short ms-1"></i>
+      </a>
+      <a href="{{ route('categories.index') }}"
+         class="fw-semibold px-4 py-2 rounded-3"
+         style="font-size:15px; background:linear-gradient(90deg,#b8860b,#ffd700,#daa520); color:#000; border:none;">
+        Get Ticket <i class="bi bi-arrow-right-short ms-1"></i>
       </a>
     </div>
   </div>
