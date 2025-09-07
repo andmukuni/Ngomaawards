@@ -1,61 +1,66 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"> <a href="#" target="_blank"> <img src="public/image/logo.png" width="240" alt="Ngoma Awards Logo"> </a> </p> <p align="center"> <img alt="PHP" src="https://img.shields.io/badge/PHP-%E2%89%A58.2-777bb3"> <img alt="Laravel" src="https://img.shields.io/badge/Laravel-11.x-ff2d20"> <img alt="License" src="https://img.shields.io/badge/License-MIT-green"> <img alt="Made in Zambia" src="https://img.shields.io/badge/Made%20in-Zambia-006a4e"> </p>
+Ngoma Awards — Official Website & Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Ngoma Awards is Zambia’s national arts awards platform (running since 1997; “Ngoma” = drum). The site recognizes, celebrates, and motivates artistic excellence across Music, Dance, Theatre, Film & Media Arts, Visual Arts & Crafts, Fashion, Comedy, Creative Writing, Community Theatre and more.
+This codebase powers the public site (about, categories, news, call for entries, entry forms) plus the admin back-office for nominations, adjudication, ticketing, sponsors, and content.
 
-## About Laravel
+Timezone: Africa/Lusaka (CAT)
+Maintainer/Contact: National Arts Council — Acacia House, Cairo Road, Lusaka • +260 211 220 639 • nacz@naczambia.org.zm
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+✨ Core Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Public Website
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Vision & Purpose, Background & Legacy, Categories, News/Blog
 
-## Learning Laravel
+2025 Call for Entries & Online Entry Form
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Ceremony page (red carpet, live performances, exhibitions, speeches)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Sponsors page with tiered packages (Platinum / Gold / Silver / Bronze)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+CTA blocks: Enter, Sponsor, Buy Tickets, Contact (incl. WhatsApp link)
 
-## Laravel Sponsors
+Nominations & Adjudication
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Category-aware entry forms with dynamic fields
 
-### Premium Partners
+File uploads (artwork, press kits, links)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Shortlisting + Judges’ scoring with transparent audit trail
 
-## Contributing
+Exports: Excel/CSV (e.g., nominees, entries, judges’ sheets)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Events & Ticketing
 
-## Code of Conduct
+Event schedule, venue, Google Calendar add-to-calendar links
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Ticket purchase hooks (pluggable payment gateways)
 
-## Security Vulnerabilities
+Donation / Support options (optional)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Sponsors & Partners
 
-## License
+Tier management, benefits matrix, brand asset uploads
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Logo showcase with ordering & visibility controls
+
+Admin Back-Office
+
+Roles & permissions (Admin, Judge, Coordinator)
+
+Dashboards with KPIs (entries by category, adjudication progress)
+
+Bulk operations, quick exports, activity logs
+
+🧱 Tech Stack
+
+Laravel 11.x, PHP ≥ 8.2
+
+MySQL 8+ (or MariaDB 10.6+)
+
+Vite + Node 20+ for asset bundling
+
+Bootstrap 5 + Bootstrap Icons / MDI
+
+Optional: Laravel Excel for exports, Spatie Permission for roles
